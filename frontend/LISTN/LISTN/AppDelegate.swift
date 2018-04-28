@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Recorder
+//  LISTN
 //
 //  Created by Joshua Kuan on 28/04/2018.
 //  Copyright © 2018 Joshua Kuan. All rights reserved.
