@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if allowed {
                         print("Great!")
                     } else {
-                        print("Permission not given")
+                        print("Permission denied")
                     }
                 }
             }

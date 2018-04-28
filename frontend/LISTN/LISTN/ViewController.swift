@@ -12,13 +12,13 @@ import AVFoundation
 class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder : AVAudioRecorder!
+    let audioSession = AVAudioSession.sharedInstance()
     var isRecording = false
     
     @IBOutlet weak var recordButtonV: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
        
     }
 
@@ -27,6 +27,12 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func recordButton(_ sender: UIButton) {
+        if(audioSession.recordPermission() != .granted) {
+            let alert = UIAlertController(title: "Permission Denied", message: "LISN needs permission to access your microphone to record audio.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         if(!isRecording) {
             startRecording(fn: "filename")
             isRecording = true
