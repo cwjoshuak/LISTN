@@ -7,6 +7,7 @@ target 'LISTN' do
 
   # Pods for LISTN
 pod 'Firebase'
+pod 'Firebase/Storage'
 pod 'Firebase/Core'
 pod 'Alamofire'
 

@@ -19,7 +19,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
+       //FirebaseApp.configure()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,15 +50,18 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     func startRecording(fn: String) {
         let audioFilename = getDocumentsDirectory()
-            .appendingPathComponent(fn+".m4a")
+            .appendingPathComponent(fn+".wav")
         
         let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
+            
+            AVFormatIDKey: Int(kAudioFormatLinearPCM),
+            AVSampleRateKey: 16000,
             AVNumberOfChannelsKey: 1,
+            AVLinearPCMBitDepthKey: 16,
+            AVLinearPCMIsFloatKey: false,
+            AVLinearPCMIsBigEndianKey: false,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-        ]
-        
+        ] as [String:Any]
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             print(audioFilename.absoluteString)
@@ -79,6 +82,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             print("recording failed")
         }
     }
+    
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for:
             .documentDirectory, in: .userDomainMask)

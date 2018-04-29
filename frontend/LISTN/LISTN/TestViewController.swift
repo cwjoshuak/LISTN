@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import Firebase
 class TestViewController: UIViewController {
-
+    
+    let fileManager = FileManager.default
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         label.text = "" // clear label
         do {
@@ -33,7 +33,37 @@ class TestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func uploadButton(_ sender: UIButton) {
+        
+        let storage = Storage.storage(url: "gs://lisn-e5d07.appspot.com")
+        let storageRef = storage.reference()
+        
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            for i in fileURLs {
+                // File located on disk
+                let localFile = i.absoluteURL
+                
+                // Create a reference to the file you want to upload
+                let uploadReference = storageRef.child(i.lastPathComponent)
+                
+                // Upload the file to the path "somefile.(ext)"
+                let uploadTask = uploadReference.putFile(from: localFile, metadata: nil) { metadata, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        // Metadata contains file metadata such as size, content-type, and download URL.
+                       // let downloadURL = StorageReference.downloadURLWithCompletion()
+                    }
+                }
+            }
+        } catch {
+            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
