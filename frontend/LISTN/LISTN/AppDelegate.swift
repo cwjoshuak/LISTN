@@ -7,15 +7,36 @@
 //
 
 import UIKit
-
+import AVFoundation
+import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var recordingSession : AVAudioSession!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        FirebaseApp.configure()
+        recordingSession = AVAudioSession.sharedInstance()
+        //let storage = Storage.storage()
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if allowed {
+                        print("Great!")
+                    } else {
+                        print("Permission denied")
+                    }
+                }
+            }
+        } catch {
+            // failed to record!
+        }
+        
         return true
     }
 
