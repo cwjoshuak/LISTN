@@ -28,13 +28,27 @@
                                 </items>
                             </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poY-XI-X7c">
-                                <rect key="frame" x="80" y="140" width="215" height="185"/>
+                                <rect key="frame" x="0.0" y="24" width="375" height="594"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Record" backgroundImage="Record"/>
                                 <connections>
                                     <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gWL-vR-DPa"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Oval" translatesAutoresizingMaskIntoConstraints="NO" id="eWd-cA-nmt">
+                                <rect key="frame" x="98" y="157" width="178" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Dictation Glyph" translatesAutoresizingMaskIntoConstraints="NO" id="emJ-2m-cai">
+                                <rect key="frame" x="175" y="380" width="24" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap Anywhere" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBp-6p-QdJ">
+                                <rect key="frame" x="98" y="493" width="176" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -42,6 +56,8 @@
                     <tabBarItem key="tabBarItem" title="" id="E9G-FR-ebM"/>
                     <connections>
                         <outlet property="recordButtonV" destination="poY-XI-X7c" id="2Ji-f6-evd"/>
+                        <outlet property="recordingImage" destination="eWd-cA-nmt" id="NX6-OK-g0E"/>
+                        <outlet property="recordingLabel" destination="nBp-6p-QdJ" id="LVK-mF-rVv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -119,7 +135,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26B-Gu-PMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175.19999999999999" y="716.49175412293857"/>
+            <point key="canvasLocation" x="-175" y="736"/>
         </scene>
         <!--Test-->
         <scene sceneID="qzI-Rx-VNL">
@@ -232,7 +248,8 @@
     </scenes>
     <resources>
         <image name="3 Items" width="375" height="49"/>
-        <image name="Record" width="40" height="40"/>
+        <image name="Dictation Glyph" width="24" height="38"/>
+        <image name="Oval" width="180" height="180"/>
         <image name="Sign In Button" width="295" height="50"/>
     </resources>
 </document>

@@ -36,45 +36,7 @@ class TestViewController: UIViewController {
     
     @IBAction func uploadButton(_ sender: UIButton) {
         
-        let storage = Storage.storage(url: "gs://lisn-e5d07.appspot.com")
-        let storageRef = storage.reference()
         
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        do {
-            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            for i in fileURLs {
-                // File located on disk
-                let localFile = i.absoluteURL
-                
-                // Create a reference to the file you want to upload
-                let uploadReference = storageRef.child(i.lastPathComponent)
-                print(uploadReference)
-                // Upload the file to the path "somefile.(ext)"
-                let uploadTask = uploadReference.putFile(from: localFile, metadata: nil) { metadata, error in
-                    if let error = error {
-                        print(error)
-                    } else {
-                        
-                    }
-                }
-                // Create a reference to the file you want to download
-                if(i.lastPathComponent != ".DS_Store")
-                {
-                    let downloadRef = storageRef.child(i.lastPathComponent)
-                    
-                    // Fetch the download URL
-                    downloadRef.downloadURL { url, error in
-                        if let error = error {
-                            print(error)
-                        } else {
-                            print(url?.absoluteString)
-                        }
-                    }
-                }
-            }
-        } catch {
-            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
-        }
         
     }
     func uploadToServer() {
