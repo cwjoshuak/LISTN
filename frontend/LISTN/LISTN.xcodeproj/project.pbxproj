@@ -12,10 +12,10 @@
 		B20B992220958FED00DBA10A /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B992120958FED00DBA10A /* NotesController.swift */; };
 		B23139F0209594DD00F1A12E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23139EF209594DD00F1A12E /* LoginViewController.swift */; };
 		B237CEB6209641A8003A77FE /* NoteTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237CEB5209641A7003A77FE /* NoteTBCell.swift */; };
+		B237CEB820965E98003A77FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B237CEB720965E98003A77FE /* Assets.xcassets */; };
 		B24A54E620950B8E00EA0583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24A54E520950B8E00EA0583 /* AppDelegate.swift */; };
 		B24A54E820950B8E00EA0583 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24A54E720950B8E00EA0583 /* ViewController.swift */; };
 		B24A54EB20950B8E00EA0583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24A54E920950B8E00EA0583 /* Main.storyboard */; };
-		B24A54ED20950B8F00EA0583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24A54EC20950B8F00EA0583 /* Assets.xcassets */; };
 		B24A54F020950B8F00EA0583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24A54EE20950B8F00EA0583 /* LaunchScreen.storyboard */; };
 		CAD63CEF33B8227262ADBE03 /* Pods_LISTN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B6FC87650812E5078B1952 /* Pods_LISTN.framework */; };
 /* End PBXBuildFile section */
@@ -28,11 +28,11 @@
 		B20B992120958FED00DBA10A /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
 		B23139EF209594DD00F1A12E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B237CEB5209641A7003A77FE /* NoteTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTBCell.swift; sourceTree = "<group>"; };
+		B237CEB720965E98003A77FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B24A54E220950B8E00EA0583 /* LISTN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LISTN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24A54E520950B8E00EA0583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B24A54E720950B8E00EA0583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B24A54EA20950B8E00EA0583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B24A54EC20950B8F00EA0583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B24A54EF20950B8F00EA0583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B24A54F120950B8F00EA0583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99ED82988B143C5CB64B02E /* Pods-LISTN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LISTN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LISTN/Pods-LISTN.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,11 +80,11 @@
 		B24A54E420950B8E00EA0583 /* LISTN */ = {
 			isa = PBXGroup;
 			children = (
+				B237CEB720965E98003A77FE /* Assets.xcassets */,
 				B237CEB5209641A7003A77FE /* NoteTBCell.swift */,
 				B24A54E520950B8E00EA0583 /* AppDelegate.swift */,
 				B24A54FB209524B500EA0583 /* ViewControllers */,
 				B24A54E920950B8E00EA0583 /* Main.storyboard */,
-				B24A54EC20950B8F00EA0583 /* Assets.xcassets */,
 				B24A54EE20950B8F00EA0583 /* LaunchScreen.storyboard */,
 				B24A54F120950B8F00EA0583 /* Info.plist */,
 				B20B98FF20952DC900DBA10A /* GoogleService-Info.plist */,
@@ -173,7 +173,7 @@
 			files = (
 				B24A54F020950B8F00EA0583 /* LaunchScreen.storyboard in Resources */,
 				B20B990020952DC900DBA10A /* GoogleService-Info.plist in Resources */,
-				B24A54ED20950B8F00EA0583 /* Assets.xcassets in Resources */,
+				B237CEB820965E98003A77FE /* Assets.xcassets in Resources */,
 				B24A54EB20950B8E00EA0583 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

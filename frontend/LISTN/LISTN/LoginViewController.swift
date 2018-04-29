@@ -8,15 +8,26 @@
 
 import UIKit
 import Firebase
-
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var suButton: UIButton!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @objc override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Sign In Background"))
+        emailField.layer.cornerRadius = 10.0
+        emailField.layer.borderWidth = 2.0
+        emailField.backgroundColor = UIColor(red: 1.0, green: CGFloat(235.0/255.0), blue: CGFloat(221/255.0), alpha: 1)
+        
+        passwordField.layer.cornerRadius = 10.0
+        passwordField.layer.borderWidth = 2.0
+        passwordField.backgroundColor = UIColor(red: 1.0, green: CGFloat(235.0/255.0), blue: CGFloat(221/255.0), alpha: 1)
+        
+        suButton.isHidden = true
+        
     }
     
     override func didReceiveMemoryWarning() {

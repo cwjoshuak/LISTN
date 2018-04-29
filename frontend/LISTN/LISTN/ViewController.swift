@@ -19,7 +19,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       //FirebaseApp.configure()
+        view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Recording Background"))
     }
 
     override func didReceiveMemoryWarning() {

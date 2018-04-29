@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Record-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="RecordController" id="BYZ-38-t0r" customClass="ViewController" customModule="LISTN" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,15 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poY-XI-X7c">
-                                <rect key="frame" x="119" y="220" width="137" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.75509597081218272" green="0.0" blue="0.070467309536947492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Record"/>
-                                <connections>
-                                    <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gWL-vR-DPa"/>
-                                </connections>
-                            </button>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3m-cZ-2VM">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -36,18 +27,19 @@
                                     <tabBarItem title="Notes" id="Tkx-LV-lDU"/>
                                 </items>
                             </tabBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Filename" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UkC-SI-qAu">
-                                <rect key="frame" x="83" y="380" width="202" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poY-XI-X7c">
+                                <rect key="frame" x="80" y="140" width="215" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                            </textField>
+                                <state key="normal" title="Record" backgroundImage="Record"/>
+                                <connections>
+                                    <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gWL-vR-DPa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Record" id="E9G-FR-ebM"/>
+                    <tabBarItem key="tabBarItem" title="" id="E9G-FR-ebM"/>
                     <connections>
                         <outlet property="recordButtonV" destination="poY-XI-X7c" id="2Ji-f6-evd"/>
                     </connections>
@@ -123,7 +115,7 @@
                             <outlet property="delegate" destination="cus-h0-VaW" id="uTU-Cy-r4l"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Notes" id="XdP-lQ-A8i"/>
+                    <tabBarItem key="tabBarItem" title="" id="XdP-lQ-A8i"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26B-Gu-PMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,14 +165,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x9C-pO-ZId">
-                                <rect key="frame" x="45" y="201" width="284" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVB-B9-Ynm">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVB-B9-Ynm">
                                 <rect key="frame" x="45" y="271" width="284" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -197,14 +182,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6a-Ss-lqt">
-                                <rect key="frame" x="153" y="444" width="68" height="55"/>
+                                <rect key="frame" x="45" y="424" width="284" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.51627852490000004" blue="0.81792313299999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" backgroundImage="Sign In Button"/>
                                 <connections>
                                     <action selector="loginButton:" destination="PKo-0l-U4w" eventType="touchUpInside" id="hZE-g8-09W"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x9C-pO-ZId">
+                                <rect key="frame" x="45" y="220" width="284" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hwj-JC-lnW"/>
@@ -212,6 +203,7 @@
                     <connections>
                         <outlet property="emailField" destination="x9C-pO-ZId" id="d5z-3Y-QnS"/>
                         <outlet property="passwordField" destination="sVB-B9-Ynm" id="g5a-6D-ep8"/>
+                        <outlet property="suButton" destination="5GJ-dq-YHW" id="APv-1R-z2g"/>
                         <segue destination="qEa-Ne-ymn" kind="show" identifier="segueToMain" id="B3h-CO-bOL"/>
                     </connections>
                 </viewController>
@@ -223,14 +215,13 @@
         <scene sceneID="8O5-M1-EC7">
             <objects>
                 <tabBarController storyboardIdentifier="TBController" id="qEa-Ne-ymn" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rxO-S7-j6b">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="3 Items" id="rxO-S7-j6b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="EgT-hl-x4N"/>
-                        <segue destination="mgy-oe-Tq7" kind="relationship" relationship="viewControllers" id="mh1-uZ-xW5"/>
                         <segue destination="cus-h0-VaW" kind="relationship" relationship="viewControllers" id="hgW-Yu-29W"/>
                     </connections>
                 </tabBarController>
@@ -239,4 +230,9 @@
             <point key="canvasLocation" x="-1516" y="-48"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="3 Items" width="375" height="49"/>
+        <image name="Record" width="40" height="40"/>
+        <image name="Sign In Button" width="295" height="50"/>
+    </resources>
 </document>
