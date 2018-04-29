@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		B20B98FC2095255E00DBA10A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B98FB2095255E00DBA10A /* TestViewController.swift */; };
 		B20B990020952DC900DBA10A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B20B98FF20952DC900DBA10A /* GoogleService-Info.plist */; };
+		B20B992220958FED00DBA10A /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B992120958FED00DBA10A /* NotesController.swift */; };
+		B23139F0209594DD00F1A12E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23139EF209594DD00F1A12E /* LoginViewController.swift */; };
+		B237CEB6209641A8003A77FE /* NoteTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237CEB5209641A7003A77FE /* NoteTBCell.swift */; };
 		B24A54E620950B8E00EA0583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24A54E520950B8E00EA0583 /* AppDelegate.swift */; };
 		B24A54E820950B8E00EA0583 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24A54E720950B8E00EA0583 /* ViewController.swift */; };
 		B24A54EB20950B8E00EA0583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24A54E920950B8E00EA0583 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 		9EFAA969E9C7D61CD2E951A8 /* Pods-LISTN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LISTN.release.xcconfig"; path = "Pods/Target Support Files/Pods-LISTN/Pods-LISTN.release.xcconfig"; sourceTree = "<group>"; };
 		B20B98FB2095255E00DBA10A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B20B98FF20952DC900DBA10A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B20B992120958FED00DBA10A /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
+		B23139EF209594DD00F1A12E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B237CEB5209641A7003A77FE /* NoteTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTBCell.swift; sourceTree = "<group>"; };
 		B24A54E220950B8E00EA0583 /* LISTN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LISTN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24A54E520950B8E00EA0583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B24A54E720950B8E00EA0583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 		B24A54E420950B8E00EA0583 /* LISTN */ = {
 			isa = PBXGroup;
 			children = (
+				B237CEB5209641A7003A77FE /* NoteTBCell.swift */,
 				B24A54E520950B8E00EA0583 /* AppDelegate.swift */,
 				B24A54FB209524B500EA0583 /* ViewControllers */,
 				B24A54E920950B8E00EA0583 /* Main.storyboard */,
@@ -90,6 +97,8 @@
 			children = (
 				B24A54E720950B8E00EA0583 /* ViewController.swift */,
 				B20B98FB2095255E00DBA10A /* TestViewController.swift */,
+				B20B992120958FED00DBA10A /* NotesController.swift */,
+				B23139EF209594DD00F1A12E /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -222,7 +231,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B24A54E820950B8E00EA0583 /* ViewController.swift in Sources */,
+				B237CEB6209641A8003A77FE /* NoteTBCell.swift in Sources */,
+				B20B992220958FED00DBA10A /* NotesController.swift in Sources */,
 				B20B98FC2095255E00DBA10A /* TestViewController.swift in Sources */,
+				B23139F0209594DD00F1A12E /* LoginViewController.swift in Sources */,
 				B24A54E620950B8E00EA0583 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +383,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YN83627A85;
 				INFOPLIST_FILE = LISTN/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cwjoshuak.LISTN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -387,7 +402,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YN83627A85;
 				INFOPLIST_FILE = LISTN/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cwjoshuak.LISTN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

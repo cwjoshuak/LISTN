@@ -12,6 +12,7 @@ class TestViewController: UIViewController {
     
     let fileManager = FileManager.default
     @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -47,14 +48,27 @@ class TestViewController: UIViewController {
                 
                 // Create a reference to the file you want to upload
                 let uploadReference = storageRef.child(i.lastPathComponent)
-                
+                print(uploadReference)
                 // Upload the file to the path "somefile.(ext)"
                 let uploadTask = uploadReference.putFile(from: localFile, metadata: nil) { metadata, error in
                     if let error = error {
                         print(error)
                     } else {
-                        // Metadata contains file metadata such as size, content-type, and download URL.
-                       // let downloadURL = StorageReference.downloadURLWithCompletion()
+                        
+                    }
+                }
+                // Create a reference to the file you want to download
+                if(i.lastPathComponent != ".DS_Store")
+                {
+                    let downloadRef = storageRef.child(i.lastPathComponent)
+                    
+                    // Fetch the download URL
+                    downloadRef.downloadURL { url, error in
+                        if let error = error {
+                            print(error)
+                        } else {
+                            print(url?.absoluteString)
+                        }
                     }
                 }
             }
@@ -63,7 +77,9 @@ class TestViewController: UIViewController {
         }
         
     }
-    
+    func uploadToServer() {
+        
+    }
     /*
     // MARK: - Navigation
 

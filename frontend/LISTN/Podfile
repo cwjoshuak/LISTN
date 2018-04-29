@@ -9,6 +9,7 @@ target 'LISTN' do
 pod 'Firebase'
 pod 'Firebase/Storage'
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
 pod 'Alamofire'
 
 end
