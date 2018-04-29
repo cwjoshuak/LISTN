@@ -19,6 +19,7 @@ The App also intentionally excludes any recording animations. These could be dis
 All of these accesibility features help out students with disabilities, while not hindering other users in any way.
 Because of that, LISTN can be used by any student as an aid to notetaking and studying.
 
+**________________________________________________________________**
 
 
 The Front-End folder contains the Swift code used to code the user-facing part of the App.
