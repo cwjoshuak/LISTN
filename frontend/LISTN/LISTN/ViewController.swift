@@ -8,13 +8,19 @@
 
 import UIKit
 import AVFoundation
+import Firebase
+import Alamofire
 
 class ViewController: UIViewController, AVAudioRecorderDelegate {
     
+    @IBOutlet weak var recordingLabel: UILabel!
+    @IBOutlet weak var recordingImage: UIImageView!
     var audioRecorder : AVAudioRecorder!
     let audioSession = AVAudioSession.sharedInstance()
     var isRecording = false
     
+    let fileManager = FileManager.default
+    let GSURL = "gs://lisn-e5d07.appspot.com"
     @IBOutlet weak var recordButtonV: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +42,90 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         if(!isRecording) {
             startRecording(fn: "filename")
             isRecording = true
-            recordButtonV.setTitle("Stop", for: .normal)
-            recordButtonV.backgroundColor = UIColor.green
+            recordingImage.image = #imageLiteral(resourceName: "Dictation")
+            recordingLabel.text = "Listening..."
+            
+            //recordButtonV.setTitle("Stop", for: .normal)
+            //recordButtonV.backgroundColor = UIColor.green
         }
         else {
             isRecording = false
             finishRecording(success: true)
-            recordButtonV.setTitle("Record", for: .normal)
-            recordButtonV.backgroundColor = UIColor.red
+            
+            recordingImage.image = #imageLiteral(resourceName: "Loading")
+            recordingLabel.text = "Letting the ink dry.\nThis may take a minute..."
+            
+            uploadToServer()
+            //recordButtonV.setTitle("Record", for: .normal)
+            //recordButtonV.backgroundColor = UIColor.red
         }
         
+    }
+    func uploadToServer() {
+        let concurrentQueue = DispatchQueue(label: "com.queue.Concurrent", attributes: .concurrent)
+        concurrentQueue.async {
+            let concurrentQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.default)
+            
+            concurrentQueue.sync {
+                let storage = Storage.storage(url: self.GSURL)
+                let storageRef = storage.reference()
+                
+                let documentsURL = self.fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                do {
+                    let fileURLs = try self.fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+                    for i in fileURLs {
+                        // File located on disk
+                        let localFile = i.absoluteURL
+                        
+                        // Create a reference to the file you want to upload
+                        let uploadReference = storageRef.child(i.lastPathComponent)
+                        print(uploadReference)
+                        // Upload the file to the path "somefile.(ext)"
+                        let uploadTask = uploadReference.putFile(from: localFile, metadata: nil) { metadata, error in
+                            if let error = error {
+                                print(error)
+                            } else {
+                                
+                            }
+                        }
+                        // Create a reference to the file you want to download
+                        if(i.lastPathComponent != ".DS_Store")
+                        {
+                            let downloadRef = storageRef.child(i.lastPathComponent)
+                            // Fetch the download URL
+                            downloadRef.downloadURL { url, error in
+                                if let error = error {
+                                    print(error)
+                                } else {
+                                   // print("https://respectfuldullwebsites--five-nine.repl.co/?param="+downloadRef.name)
+                                    Alamofire.request("https://respectfuldullwebsites--five-nine.repl.co/single?name="+downloadRef.name).responseJSON { response in
+                                        print("Request: \(String(describing: response.request))")   // original url request
+                                        print("Response: \(String(describing: response.response))") // http url response
+                                        print("Result: \(response.result)")                         // response serialization result
+                                        
+                                        if let json = response.result.value {
+                                            print("JSON: \(json)") // serialized json response
+                                        }
+                                        
+                                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                                            print("Data: \(utf8Text)") // original server data as UTF8 string
+                                        }
+                                    }
+                                    print(url?.absoluteString)
+                                    print(downloadRef.name)
+                                }
+                            }
+                        }
+                    }
+                } catch {
+                    print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+                }
+            }
+            DispatchQueue.main.sync {
+                self.recordingImage.image = #imageLiteral(resourceName: "Oval")
+                self.recordingLabel.text = "Tap anywhere..."
+            }
+        }
     }
     
     func startRecording(fn: String) {
