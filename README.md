@@ -1,6 +1,7 @@
 # LISTN
 
 **LISTN is an app designed to assist students with note-taking.**
+
 LISTN uses Google's speech recognition technology to help disabled students to get more out of their lectures.
 
 Many students have difficulty hearing, difficulty paying attention, and difficulty remembering the content of lectures.
