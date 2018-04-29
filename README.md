@@ -22,7 +22,7 @@ Because of that, LISTN can be used by any student as an aid to notetaking and st
 
 The Front-End folder contains the Swift code used to code the user-facing part of the App.
 
-The Design Folder contains all the image files used in the App
+The Listn Design Folder contains all the image files used in the App
 
 The Back-End folder contains the Python code that handles the transcription of audio. 
 
