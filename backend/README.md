@@ -2,11 +2,11 @@
 #### :microphone: :memo:
 
 ## API's used:
-- Google Speech to Text 
-- Firebase
-- Dropbox
-- Flask
-- Alamofire
+- Google Speech to Text :speech_balloon:
+- Firebase :fire:
+- Dropbox :mailbox:
+- Flask :sake:
+- Alamofire :boom:
 
 ## How does it work?
 1. Take recording filename from GET request with Flask
