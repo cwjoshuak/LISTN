@@ -30,15 +30,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Recording Background"))
-
-        for family: String in UIFont.familyNames
-        {
-            print("\(family)")
-            for names: String in UIFont.fontNames(forFamilyName: family)
-            {
-                print("== \(names)")
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
