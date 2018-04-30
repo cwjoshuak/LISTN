@@ -14,3 +14,8 @@
 3. Use Google Speech to Text
 4. Upload parsed text file to Dropbox
 5. Return file to front-end Swift with Alamofire
+
+## Features
+- Custom filenames 
+- Unclear texts are checked ([ Example ])
+- Uploaded to a cloud 
