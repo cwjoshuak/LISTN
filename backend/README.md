@@ -17,5 +17,9 @@
 
 ## Features
 - Custom filenames 
-- Unclear texts are checked ([ Example ])
+- Unclear texts are checked
+  ```python
+  if confidence < 0.8:
+    print("[" + example_string + "]")
+  ```
 - Uploaded to a cloud 
