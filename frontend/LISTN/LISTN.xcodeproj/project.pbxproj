@@ -33,10 +33,10 @@
 		B237CEB720965E98003A77FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B237CEBB20967D6B003A77FE /* TranscriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionVC.swift; sourceTree = "<group>"; };
 		B237CEBD209688EF003A77FE /* IntermediaryTBControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediaryTBControllerViewController.swift; sourceTree = "<group>"; };
-		B237CEBF209697FB003A77FE /* Andika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Andika-Regular.ttf"; path = "fonts/Andika/Andika-Regular.ttf"; sourceTree = "<group>"; };
-		B237CEC120969808003A77FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		B237CEC220969808003A77FE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "fonts/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		B237CEC320969808003A77FE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		B237CEBF209697FB003A77FE /* Andika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Andika-Regular.ttf"; sourceTree = "<group>"; };
+		B237CEC120969808003A77FE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		B237CEC220969808003A77FE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		B237CEC320969808003A77FE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		B24A54E220950B8E00EA0583 /* LISTN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LISTN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24A54E520950B8E00EA0583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B24A54E720950B8E00EA0583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +67,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B237CEC720969A24003A77FE /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B237CEC320969808003A77FE /* Roboto-Bold.ttf */,
+				B237CEC220969808003A77FE /* Roboto-Medium.ttf */,
+				B237CEC120969808003A77FE /* Roboto-Regular.ttf */,
+				B237CEBF209697FB003A77FE /* Andika-Regular.ttf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		B24A54D920950B8E00EA0583 = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B237CEB720965E98003A77FE /* Assets.xcassets */,
-				B237CEC320969808003A77FE /* Roboto-Bold.ttf */,
-				B237CEC220969808003A77FE /* Roboto-Medium.ttf */,
-				B237CEC120969808003A77FE /* Roboto-Regular.ttf */,
-				B237CEBF209697FB003A77FE /* Andika-Regular.ttf */,
+				B237CEC720969A24003A77FE /* fonts */,
 				B237CEB5209641A7003A77FE /* NoteTBCell.swift */,
 				B24A54E520950B8E00EA0583 /* AppDelegate.swift */,
 				B24A54FB209524B500EA0583 /* ViewControllers */,
