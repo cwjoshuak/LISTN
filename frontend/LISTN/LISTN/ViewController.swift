@@ -19,9 +19,13 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     let audioSession = AVAudioSession.sharedInstance()
     var isRecording = false
     
+    @IBOutlet weak var recordButtonV: UIButton!
+    
     let fileManager = FileManager.default
     let GSURL = "gs://lisn-e5d07.appspot.com"
-    @IBOutlet weak var recordButtonV: UIButton!
+    
+    let defaults = UserDefaults.standard // for persistent user data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,23 +48,16 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             isRecording = true
             recordingImage.image = #imageLiteral(resourceName: "Dictation")
             recordingLabel.text = "Listening..."
-            
-            //recordButtonV.setTitle("Stop", for: .normal)
-            //recordButtonV.backgroundColor = UIColor.green
         }
         else {
             isRecording = false
             finishRecording(success: true)
-            
             recordingImage.image = #imageLiteral(resourceName: "Loading")
             recordingLabel.text = "Letting the ink dry.\nThis may take a minute..."
-            
             uploadToServer()
-            //recordButtonV.setTitle("Record", for: .normal)
-            //recordButtonV.backgroundColor = UIColor.red
         }
-        
     }
+    
     func uploadToServer() {
         let concurrentQueue = DispatchQueue(label: "com.queue.Concurrent", attributes: .concurrent)
         concurrentQueue.async {
@@ -85,45 +82,50 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
                             if let error = error {
                                 print(error)
                             } else {
-                                
-                            }
-                        }
-                        // Create a reference to the file you want to download
-                        if(i.lastPathComponent != ".DS_Store")
-                        {
-                            let downloadRef = storageRef.child(i.lastPathComponent)
-                            // Fetch the download URL
-                            downloadRef.downloadURL { url, error in
-                                if let error = error {
-                                    print(error)
-                                } else {
-                                   // print("https://respectfuldullwebsites--five-nine.repl.co/?param="+downloadRef.name)
-                                    Alamofire.request("https://respectfuldullwebsites--five-nine.repl.co/single?name="+downloadRef.name).responseJSON { response in
-                                        print("Request: \(String(describing: response.request))")   // original url request
-                                        print("Response: \(String(describing: response.response))") // http url response
-                                        print("Result: \(response.result)")                         // response serialization result
-                                        
-                                        if let json = response.result.value {
-                                            print("JSON: \(json)") // serialized json response
-                                        }
-                                        
-                                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                                            print("Data: \(utf8Text)") // original server data as UTF8 string
+                                if(i.lastPathComponent != ".DS_Store")
+                                {
+                                    // Create a reference to the file you want to download
+                                    let downloadRef = storageRef.child(i.lastPathComponent)
+                                    // Fetch the download URL
+                                    downloadRef.downloadURL { url, error in
+                                        if let error = error {
+                                            print(error)
+                                        } else {
+                                            // print("https://respectfuldullwebsites--five-nine.repl.co/?param="+downloadRef.name)
+                                            Alamofire.request("https://respectfuldullwebsites--five-nine.repl.co/single?name="+downloadRef.name).responseJSON { response in
+                                                print("Request: \(String(describing: response.request))")   // original url request
+                                                print("Response: \(String(describing: response.response))") // http url response
+                                                print("Result: \(response.result)")                         // response serialization result
+                                                
+                                                if let json = response.result.value {
+                                                    print("JSON: \(json)") // serialized json response
+                                                }
+                                                
+                                                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                                                    //let barControllers = self.tabBarController?.viewControllers
+                                                    //let svc = barControllers?[1] as! TranscriptionVC
+                                                    //svc.textField!.text = utf8Text
+                                                    let tbvc = self.tabBarController as! IntermediaryTBControllerViewController
+                                                    let newText = utf8Text.replacingOccurrences(of: "\"", with: "", options: NSString.CompareOptions.literal, range: nil)
+                                                    tbvc.necessaryText = newText
+                                                    print(newText)
+                                                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                                                    
+                                                    self.recordingImage.image = #imageLiteral(resourceName: "Oval")
+                                                    self.recordingLabel.text = "Tap anywhere..."
+                                                }
+                                            }
+                                            print(url?.absoluteString)
+                                            print(downloadRef.name)
                                         }
                                     }
-                                    print(url?.absoluteString)
-                                    print(downloadRef.name)
-                                }
                             }
+                        }
                         }
                     }
                 } catch {
                     print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
                 }
-            }
-            DispatchQueue.main.sync {
-                self.recordingImage.image = #imageLiteral(resourceName: "Oval")
-                self.recordingLabel.text = "Tap anywhere..."
             }
         }
     }
