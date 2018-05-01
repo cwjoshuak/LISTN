@@ -58,11 +58,7 @@ print("[" + example_string + "]")
 - Firebase :fire:
 
 ## Mockups
-<img src="/mockups/P1.png" width="140">
-<img src="/mockups/P2-A.png" width="140">
-<img src="/mockups/P2-B.png" width="140">
-<img src="/mockups/P2-C.png" width="140">
-<img src="/mockups/P3.png" width="140">
+<img src="/mockups/P1.png" width="140">  <img src="/mockups/P2-A.png" width="140">  <img src="/mockups/P2-B.png" width="140">  <img src="/mockups/P2-C.png" width="140">  <img src="/mockups/P3.png" width="140">
 
 ## Struggles
 - Google Speech API requires 1 channel audio @ 16bit. Finding the correct settings was a pain.
