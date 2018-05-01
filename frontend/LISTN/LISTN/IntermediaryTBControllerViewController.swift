@@ -8,6 +8,7 @@
 
 import UIKit
 
+// this class just acts as an intermediary which contains 'global' variable for which the transcript text is passed to
 class IntermediaryTBControllerViewController: UITabBarController {
     var necessaryText : String = ""
 }
