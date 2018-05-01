@@ -58,7 +58,7 @@ print("[" + example_string + "]")
 - Firebase :fire:
 
 ## Mockups
-![](/mockups/P1.png){:height="50%" width="50%"}
+![](/mockups/P1.png){:height="20%" width="20%"}
 
 ## Struggles
 - Google Speech API requires 1 channel audio @ 16bit. Finding the correct settings was a pain.
